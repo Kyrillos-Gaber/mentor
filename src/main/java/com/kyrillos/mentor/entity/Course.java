@@ -2,9 +2,12 @@ package com.kyrillos.mentor.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -14,4 +17,7 @@ public class Course extends BaseEntity{
     @Column(unique = true)
     private String name;
     private String hours;
+    private String description;
+    @OneToMany
+    private List<Grade> grades;
 }

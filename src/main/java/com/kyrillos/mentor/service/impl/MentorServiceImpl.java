@@ -4,7 +4,6 @@ import com.kyrillos.mentor.entity.Mentor;
 import com.kyrillos.mentor.repository.MentorRepository;
 import com.kyrillos.mentor.service.MentorService;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +15,14 @@ public class MentorServiceImpl implements MentorService {
     MentorRepository mentorRepo;
     @Override
     public Mentor save(Mentor mentor) {
+        return mentorRepo.save(mentor);
+    }
+
+    @Override
+    public Mentor update(UUID id, Mentor mentor) {
+        Mentor m = get(id);
+        mentor.setId(id);
+        mentor.setCreatedAt(m.getCreatedAt());
         return mentorRepo.save(mentor);
     }
 

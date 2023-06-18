@@ -6,9 +6,6 @@ import com.kyrillos.mentor.repository.MentorRepository;
 import java.util.List;
 import java.util.UUID;
 
-public interface MentorService {
-    Mentor save(Mentor mentor);
-    Mentor get(UUID id);
-    List<Mentor> getAll();
-    void delete(UUID id);
+public interface MentorService extends BaseService<Mentor> {
+
 }
