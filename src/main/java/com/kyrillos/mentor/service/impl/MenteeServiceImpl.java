@@ -16,26 +16,29 @@ public class MenteeServiceImpl implements MenteeService {
 
     @Override
     public Mentee get(UUID id) {
-        return null;
+        return menteeRepo.findById(id).get();
     }
 
     @Override
-    public Mentee save(Mentee mentor) {
-        return null;
+    public Mentee save(Mentee mentee) {
+        return menteeRepo.save(mentee);
     }
 
     @Override
-    public Mentee update(UUID id, Mentee mentor) {
-        return null;
+    public Mentee update(UUID id, Mentee mentee) {
+        Mentee m = get(id);
+        mentee.setCreatedAt(m.getCreatedAt());
+        mentee.setId(id);
+        return menteeRepo.save(mentee);
     }
 
     @Override
     public void delete(UUID id) {
-
+        menteeRepo.deleteById(id);
     }
 
     @Override
     public List<Mentee> getAll() {
-        return null;
+        return (List<Mentee>)menteeRepo.findAll();
     }
 }
