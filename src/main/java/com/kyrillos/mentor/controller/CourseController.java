@@ -1,2 +1,4 @@
-package com.kyrillos.mentor.controller;public class CourseConroller {
+package com.kyrillos.mentor.controller;
+
+public class CourseController {
 }

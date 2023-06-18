@@ -1,2 +1,4 @@
-package com.kyrillos.mentor.controller;public class GradeConroller {
+package com.kyrillos.mentor.controller;
+
+public class GradeController {
 }

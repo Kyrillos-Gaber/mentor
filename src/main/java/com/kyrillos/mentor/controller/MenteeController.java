@@ -1,2 +1,4 @@
-package com.kyrillos.mentor.controller;public class Mentee {
+package com.kyrillos.mentor.controller;
+
+public class MenteeController {
 }
