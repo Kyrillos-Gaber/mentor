@@ -1,12 +1,8 @@
 package com.kyrillos.mentor.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-import java.util.UUID;
 
 @Entity
 @Getter
@@ -15,5 +11,6 @@ import java.util.UUID;
 public class Mentor extends BaseEntity {
     @Column(name = "name")
     private String name;
-
+    private String phone;
+    private String city;
 }
