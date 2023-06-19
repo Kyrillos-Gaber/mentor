@@ -16,26 +16,29 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public Course get(UUID id) {
-        return null;
+        return courseRepo.findById(id).get();
     }
 
     @Override
     public Course save(Course entity) {
-        return null;
+        return courseRepo.save(entity);
     }
 
     @Override
     public Course update(UUID id, Course entity) {
-        return null;
+        Course course = get(id);
+        entity.setId(id);
+        entity.setCreatedAt(course.getCreatedAt());
+        return courseRepo.save(entity);
     }
 
     @Override
     public void delete(UUID id) {
-
+        courseRepo.deleteById(id);
     }
 
     @Override
     public List<Course> getAll() {
-        return null;
+        return (List<Course>) courseRepo.findAll();
     }
 }

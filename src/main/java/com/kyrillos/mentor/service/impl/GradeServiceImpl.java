@@ -16,26 +16,29 @@ public class GradeServiceImpl implements GradeService {
 
     @Override
     public Grade get(UUID id) {
-        return null;
+        return gradeRepo.findById(id).get();
     }
 
     @Override
     public Grade save(Grade entity) {
-        return null;
+        return gradeRepo.save(entity);
     }
 
     @Override
     public Grade update(UUID id, Grade entity) {
-        return null;
+        Grade g = get(id);
+        entity.setId(id);
+        entity.setCreatedAt(g.getCreatedAt());
+        return gradeRepo.save(entity);
     }
 
     @Override
     public void delete(UUID id) {
-
+        gradeRepo.deleteById(id);
     }
 
     @Override
     public List<Grade> getAll() {
-        return null;
+        return (List<Grade>)gradeRepo.findAll();
     }
 }
