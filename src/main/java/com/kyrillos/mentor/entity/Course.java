@@ -1,5 +1,6 @@
 package com.kyrillos.mentor.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
@@ -18,6 +19,7 @@ public class Course extends BaseEntity{
     private String name;
     private String hours;
     private String description;
-    @OneToMany
+    @OneToMany(mappedBy = "course")
+    @JsonIgnore
     private List<Grade> grades;
 }

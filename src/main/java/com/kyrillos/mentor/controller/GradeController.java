@@ -16,9 +16,9 @@ import java.util.UUID;
 public class GradeController {
     GradeService gradeService;
 
-    @PostMapping
-    public ResponseEntity<Grade> save(@RequestBody Grade grade){
-        return new ResponseEntity<>(gradeService.save(grade), HttpStatus.OK);
+    @PostMapping("/{courseId}/{menteeId}")
+    public ResponseEntity<Grade> save(@PathVariable UUID courseId, @PathVariable UUID menteeId, @RequestBody Grade grade){
+        return new ResponseEntity<>(gradeService.save(courseId, menteeId, grade), HttpStatus.OK);
     }
 
     @GetMapping

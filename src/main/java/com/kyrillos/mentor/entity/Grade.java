@@ -15,8 +15,8 @@ import java.util.List;
 @Table(name = "grade")
 public class Grade extends BaseEntity {
     private String score;
-    // many grades to one student
 
+    // many grades to one student
     @ManyToOne(optional = false)
     @JoinColumn(name = "mentee_id", referencedColumnName = "id")
     private Mentee mentee;
