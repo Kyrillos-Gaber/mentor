@@ -3,7 +3,6 @@ package com.kyrillos.mentor.controller;
 import com.kyrillos.mentor.entity.Mentor;
 import com.kyrillos.mentor.service.MentorService;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

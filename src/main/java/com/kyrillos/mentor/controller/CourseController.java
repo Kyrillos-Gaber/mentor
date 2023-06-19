@@ -21,6 +21,12 @@ public class CourseController {
         return new ResponseEntity<>(courseService.save(course), HttpStatus.OK);
     }
 
+    @PostMapping("/{courseId}/mentor/{mentorId}")
+    public ResponseEntity<HttpStatus> addMentor(@PathVariable UUID courseId, @PathVariable UUID mentorId){
+        courseService.addMentor(courseId, mentorId);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     @GetMapping
     public ResponseEntity<List<Course>> getAll(){
         return new ResponseEntity<>(courseService.getAll(), HttpStatus.OK);

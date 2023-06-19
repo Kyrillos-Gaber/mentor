@@ -1,8 +1,10 @@
 package com.kyrillos.mentor.service.impl;
 
 import com.kyrillos.mentor.entity.Course;
+import com.kyrillos.mentor.entity.Mentor;
 import com.kyrillos.mentor.repository.CourseRepository;
 import com.kyrillos.mentor.service.CourseService;
+import com.kyrillos.mentor.service.MentorService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class CourseServiceImpl implements CourseService {
     CourseRepository courseRepo;
+    MentorService mentorService;
 
     @Override
     public Course get(UUID id) {
@@ -40,5 +43,13 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public List<Course> getAll() {
         return (List<Course>) courseRepo.findAll();
+    }
+
+    @Override
+    public void addMentor(UUID courseId, UUID mentorId) {
+        Mentor mentor = mentorService.get(mentorId);
+        Course course = get(courseId);
+        course.getMentors().add(mentor);
+        courseRepo.save(course);
     }
 }
